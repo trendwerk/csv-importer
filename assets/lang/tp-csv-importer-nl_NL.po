@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CSV Importer\n"
+"POT-Creation-Date: 2014-11-05 12:50+0100\n"
+"PO-Revision-Date: 2014-11-05 12:50+0100\n"
+"Last-Translator: Harold <harold@trendwerk.nl>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: class-tp-csv-admin.php:24
+msgid "Import"
+msgstr "Importeren"
+
+#: class-tp-csv-admin.php:25
+msgid "Queue"
+msgstr "Wachtrij"
+
+#: class-tp-csv-admin.php:27
+msgid "Add file"
+msgstr "Nieuw bestand"
+
+#: class-tp-csv-admin.php:40
+msgid "Import queue"
+msgstr "Importeer wachtrij"
+
+#: class-tp-csv-admin.php:50
+msgid "File"
+msgstr "Bestand"
+
+#: class-tp-csv-admin.php:54
+msgid "Status"
+msgstr "Status"
+
+#: class-tp-csv-admin.php:73
+#, php-format
+msgid "The queue is currently empty. <a href=\"%1$s\">Add new file</a>"
+msgstr ""
+"De wachtrij is op dit moment leeg. <a href=\"%1$s\">Nieuw bestand toevoegen</"
+"a>"
+
+#: class-tp-csv-admin.php:103
+msgid "Waiting"
+msgstr "Wachten"
+
+#: class-tp-csv-admin.php:105
+#, php-format
+msgid "Processing (%1$s)"
+msgstr "Verwerken (%1$s)"
+
+#: class-tp-csv-admin.php:141
+msgid "Add file to queue"
+msgstr "Bestand aan wachtrij toevoegen"
+
+#: class-tp-csv-admin.php:150
+msgid "Add"
+msgstr "Toevoegen"
+
+#: class-tp-csv-admin.php:193
+msgid "The file has been added to the queue."
+msgstr "Het bestand is toegevoegd aan de wachtrij."

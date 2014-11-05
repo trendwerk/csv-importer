@@ -1,0 +1,11 @@
+/**
+ * Admin styling
+ *
+ * @package CSV_Importer
+ */
+div.wrap.tp-csv-importer h2 {
+  margin-bottom: 15px; }
+div.wrap.tp-csv-importer p.description {
+  margin-bottom: 15px; }
+div.wrap.tp-csv-importer th.actions {
+  width: 10px; }
