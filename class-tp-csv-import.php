@@ -7,30 +7,58 @@
 
 class TP_CSV_Import {
 
+	var $attachment_id;
+
 	/**
-	 * Import a file
-	 *
+	 * Create importer
+	 * 
 	 * @param int $attachment_id
+	 */
+	function __construct( $attachment_id ) {
+		$this->attachment_id = $attachment_id;
+	}
+
+	/**
+	 * Start import
 	 * 
 	 * @return string Status code
-	 *
-	 * @abstract
 	 */
-	static function import( $attachment_id ) {
-		self::set_progress( $attachment_id, 0 );
+	function start() {
+		$this->set_progress( 0 );
 
 		/**
 		 * Read file
 		 */
-		$file_path = get_attached_file( $attachment_id );
+		$file_path = get_attached_file( $this->attachment_id );
+		$total_rows = 0;
 
 		if( $handle = @fopen( $file_path, 'r' ) ) {
+			/**
+			 * Count rows for progress
+			 */
 			$head = fgetcsv( $handle, 0, ';' );
 
-			while( $entry = fgetcsv( $handle, 0, ';' ) ) {
-				$entry = array_combine( $head, $entry );
+			while( $entry = fgetcsv( $handle, 0, ';' ) )
+				$total_rows++;
 
-				self::add_entry( $entry );
+			/**
+			 * Import entries
+			 */
+			if( 0 < $total_rows ) {
+				rewind( $handle );
+
+				$head = fgetcsv( $handle, 0, ';' );
+
+				$current_row = 0;
+
+				while( $entry = fgetcsv( $handle, 0, ';' ) ) {
+					$entry = array_combine( $head, $entry );
+
+					$current_row++;
+					$this->set_progress( floor( ( $current_row / $total_rows ) * 100 ) );
+
+					$this->add_entry( $entry );
+				}
 			}
 		} else {
 			return (object) array(
@@ -55,14 +83,15 @@ class TP_CSV_Import {
 	 * Add new entry
 	 *
 	 * @param array $reference
-	 *
-	 * @abstract
 	 */
-	static function add_entry( $reference ) {
+	function add_entry( $reference ) {
 		if( ! isset( $reference ) || ! is_array( $reference ) )
 			return;
 
 		$reference = (object) $reference;
+
+		if( ! isset( $reference->id ) )
+			return;
 
 		$new = array(
 			'post_author'  => 1,
@@ -73,7 +102,7 @@ class TP_CSV_Import {
 		);
 
 		//Add or update the entry
-		if( $_entry = self::get_post( $reference->id ) ) {
+		if( $_entry = $this->get_post( $reference->id ) ) {
 			$post_id = wp_update_post( wp_parse_args( array(
 				'ID' => $_entry->ID,
 			), $new ) );
@@ -88,13 +117,10 @@ class TP_CSV_Import {
 	/**
 	 * Set progress
 	 *
-	 * @param int $attachment_id
 	 * @param int $progress
-	 *
-	 * @abstract
 	 */
-	static function set_progress( $attachment_id, $progress ) {
-		TP_CSV_Queue::set_status( $attachment_id, array(
+	function set_progress( $progress ) {
+		TP_CSV_Queue::set_status( $this->attachment_id, array(
 			'code'     => 'processing',
 			'progress' => $progress,
 		) );
@@ -106,10 +132,8 @@ class TP_CSV_Import {
 	 * @param int $reference_id
 	 * 
 	 * @return object|bool(false)
-	 *
-	 * @abstract
 	 */
-	static function get_post( $reference_id ) {
+	function get_post( $reference_id ) {
 		if( ! $reference_id )
 			return false;
 

@@ -29,7 +29,8 @@ class TP_CSV_Cron {
 			/**
 			 * Do import
 			 */
-			$result = TP_CSV_Import::import( $file->attachment_id );
+			$importer = new TP_CSV_Import( $file->attachment_id );
+			$result = $importer->start();
 
 			/**
 			 * Set new status
