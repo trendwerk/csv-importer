@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CSV Importer\n"
-"POT-Creation-Date: 2014-11-05 12:50+0100\n"
-"PO-Revision-Date: 2014-11-05 12:50+0100\n"
+"POT-Creation-Date: 2014-11-07 09:01+0100\n"
+"PO-Revision-Date: 2014-11-07 09:01+0100\n"
 "Last-Translator: Harold <harold@trendwerk.nl>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,54 +13,79 @@ msgstr ""
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class-tp-csv-admin.php:24
+#: class-tp-csv-admin.php:25
 msgid "Import"
 msgstr "Importeren"
 
-#: class-tp-csv-admin.php:25
+#: class-tp-csv-admin.php:26
 msgid "Queue"
 msgstr "Wachtrij"
 
-#: class-tp-csv-admin.php:27
+#: class-tp-csv-admin.php:28
 msgid "Add file"
 msgstr "Nieuw bestand"
 
-#: class-tp-csv-admin.php:40
+#: class-tp-csv-admin.php:41
 msgid "Import queue"
 msgstr "Importeer wachtrij"
 
-#: class-tp-csv-admin.php:50
+#: class-tp-csv-admin.php:51
 msgid "File"
 msgstr "Bestand"
 
-#: class-tp-csv-admin.php:54
+#: class-tp-csv-admin.php:55
 msgid "Status"
 msgstr "Status"
 
-#: class-tp-csv-admin.php:73
+#: class-tp-csv-admin.php:74
 #, php-format
 msgid "The queue is currently empty. <a href=\"%1$s\">Add new file</a>"
 msgstr ""
 "De wachtrij is op dit moment leeg. <a href=\"%1$s\">Nieuw bestand toevoegen</"
 "a>"
 
-#: class-tp-csv-admin.php:103
+#: class-tp-csv-admin.php:104
 msgid "Waiting"
 msgstr "Wachten"
 
-#: class-tp-csv-admin.php:105
+#: class-tp-csv-admin.php:106
 #, php-format
 msgid "Processing (%1$s)"
 msgstr "Verwerken (%1$s)"
 
-#: class-tp-csv-admin.php:141
+#: class-tp-csv-admin.php:108
+#, php-format
+msgid "Failed: %1$s"
+msgstr "Mislukt: %1$s"
+
+#: class-tp-csv-admin.php:110
+msgid "Done"
+msgstr "Klaar"
+
+#: class-tp-csv-admin.php:153
 msgid "Add file to queue"
 msgstr "Bestand aan wachtrij toevoegen"
 
-#: class-tp-csv-admin.php:150
+#: class-tp-csv-admin.php:162
 msgid "Add"
 msgstr "Toevoegen"
 
-#: class-tp-csv-admin.php:193
+#: class-tp-csv-admin.php:212
 msgid "The file has been added to the queue."
 msgstr "Het bestand is toegevoegd aan de wachtrij."
+
+#: class-tp-csv-admin.php:214
+msgid "The file has been removed the queue."
+msgstr "Het bestand is verwijderd uit de wachtrij."
+
+#: class-tp-csv-admin.php:225
+msgid "ERROR: The file was not added to the queue."
+msgstr "FOUT: Het bestand is niet toegevoegd aan de wachtrij."
+
+#: class-tp-csv-admin.php:239
+msgid "Are you sure you want to remove this file from the queue?"
+msgstr "Weet je zeker dat je dit bestand uit de wachtrij wilt verwijderen?"
+
+#: class-tp-csv-import.php:67
+msgid "Couldn't read file."
+msgstr "Kon het bestand niet lezen."

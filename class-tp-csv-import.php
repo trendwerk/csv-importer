@@ -97,7 +97,7 @@ class TP_CSV_Import {
 			'post_author'  => 1,
 			'post_content' => $reference->content,
 			'post_status'  => 'publish',
-			'post_title'   => $reference->title,
+			'post_title'   => trim( $reference->title ),
 			'post_type'    => 'post',
 		);
 
