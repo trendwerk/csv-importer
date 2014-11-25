@@ -120,6 +120,8 @@ class TP_CSV_Import {
 	 * @param int $progress
 	 */
 	function set_progress( $progress ) {
+		wp_cache_flush();
+		
 		TP_CSV_Queue::set_status( $this->attachment_id, array(
 			'code'     => 'processing',
 			'progress' => $progress,
