@@ -10,7 +10,7 @@ class TP_CSV_Cron {
 	function __construct() {
 		$queue = TP_CSV_Queue::get();
 
-		if( ! wp_next_scheduled( 'tp_csv_importer' ) && 0 < count( $queue ) && 'waiting' === $queue[0]->status['code'] ) {
+		if( ! wp_next_scheduled( 'tp_csv_importer' ) && 0 < count( $queue ) ) {
 			wp_schedule_single_event( time(), 'tp_csv_importer' );
 		}
 
@@ -24,18 +24,28 @@ class TP_CSV_Cron {
 		$queue = TP_CSV_Queue::get();
 
 		if( 0 < count( $queue ) ) {
-			$file = $queue[0];
 
-			/**
-			 * Do import
-			 */
-			$importer = new TP_CSV_Import( $file->attachment_id );
-			$result = $importer->start();
+			foreach( $queue as $file ) {
 
-			/**
-			 * Set new status
-			 */
-			TP_CSV_Queue::set_status( $file->attachment_id, $result->status );
+				if( 'processing' === $file->status['code'] )
+					break;
+
+				if( 'waiting' !== $file->status['code'] )
+					continue;
+
+				/**
+				 * Do import
+				 */
+				$importer = new TP_CSV_Import( $file->attachment_id, $file->taxonomy, $file->term );
+				$result = $importer->start();
+
+				/**
+				 * Set new status
+				 */
+				TP_CSV_Queue::set_status( $file->attachment_id, $result->status );
+
+				break;
+			}
 		}
 	}
 
