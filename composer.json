@@ -1,0 +1,16 @@
+{
+	"name": "trendwerk/csv-importer",
+	"description": "Starter plugin for creating a CSV import tool. Made for WordPress.",
+	"type": "wordpress-muplugin",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Harold Angenent",
+			"email": "harold@trendwerk.nl"
+		}
+	],
+	"require": {
+		"php": ">=5.4",
+		"composer/installers": "v1.0.19"
+    }
+}
