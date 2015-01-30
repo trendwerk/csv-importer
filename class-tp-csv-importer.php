@@ -5,7 +5,7 @@
  *
  * Plugin URI: https://github.com/trendwerk/csv-importer
  * 
- * Author: Ontwerpstudio Trendwerk
+ * Author: Trendwerk
  * Author URI: https://github.com/trendwerk
  * 
  * Version: 1.0.0
