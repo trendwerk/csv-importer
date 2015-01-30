@@ -3,6 +3,13 @@
  * Plugin Name: CSV Importer
  * Description: Starter plugin for creating a CSV import tool.
  *
+ * Plugin URI: https://github.com/trendwerk/csv-importer
+ * 
+ * Author: Ontwerpstudio Trendwerk
+ * Author URI: https://github.com/trendwerk
+ * 
+ * Version: 1.0.0
+ * 
  * @package	CSV_Importer
  */
 
